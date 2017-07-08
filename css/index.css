@@ -1,0 +1,26 @@
+*{
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+html{
+	background-color: #21B4A2;
+}
+
+body{
+	width: 80%;
+	height: 100vh;
+	background-color: #FFFFFF;
+	margin: 0px auto;
+	padding: 10px 50px;
+}
+
+
+tr{
+	height:50px;
+}
+
+
+
+

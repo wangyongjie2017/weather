@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>王永杰</title>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<link rel="icon" type="text/css" href="http://i2.muimg.com/567571/e0565125397e23c4.jpg">
+	<!--<meta http-equiv="refresh" content="5">-->
+</head>
+<body>
+	<div id="app">
+		<div class="header" v-bind:style="up">
+			<input type="text" v-bind:style="seek" placeholder="BeiJing" v-model="location">
+			<button type="" v-bind:style="btn">搜索</button>
+		</div>
+		<div class="body_left">
+			<h3> 城市:{{name}}, 国家:{{country}}</h3>
+			<span>经度:{{longitude}} </span>
+			<span> 纬度:{{Latitude}}</span>
+			<h4>{{year}}-{{month}}-{{day}}</h4>
+			<!--es6方法   ${}绑定值-->
+			<!--<img v-for="icon in weatherArr" :src='"http://openweathermap.org/img/w/"+icon.weather[0].icon+".png"'>-->
+			<!--普通的字符串拼接-->
+			<!--<img v-for="icon in weatherArr" :src=`http://openweathermap.org/img/w/${icon.weather[0].icon}.png`>-->
+			<table border v-bind:style="table">
+				<tr>
+					<th>天气情况 \ 预报日期</th>
+					<th>{{month}}月{{day}}日</th>
+					<th>{{month}}月{{day+1}}日</th>
+					<th>{{month}}月{{day+2}}日</th>
+					<th>{{month}}月{{day+3}}日</th>
+					<th>{{month}}月{{day+4}}日</th>
+					<th>{{month}}月{{day+5}}日</th>
+					<th>{{month}}月{{day+6}}日</th>
+				</tr>
+				<tr><!--获取的天气情况-->
+					<td>天气</td>
+					<td v-for="weather in weatherArr">{{weather.weather[0].description}}</td>  
+				</tr>
+				<tr><!--获取的天气图标    使用到图片中？？？-->  
+					<td>图标</td>
+					<td v-for="icon in weatherArr">
+						<img :src='"http://openweathermap.org/img/w/"+icon.weather[0].icon+".png"'>
+					</td>
+				</tr>
+				<tr>
+					<td>湿度</td>
+					<td v-for="humidity in weatherArr">{{humidity.humidity}}%</td>
+				</tr>
+				<tr>
+					<td>雨量</td>
+					<td v-for="rain in weatherArr">{{rain.rain}}</td>
+				</tr>
+			</table>
+
+
+		</div>
+	</div>
+</body>
+<!--封装的数据请求插件-->
+	<script src='https://unpkg.com/axios/dist/axios.min.js'></script>
+	<script src="./js/vue.js"></script>
+	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src='js/index.js'></script>
+</html>
