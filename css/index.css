@@ -17,10 +17,13 @@ body{
 }
 
 
-tr{
-	height:50px;
+th{
+	height:40px;
+	width:12%;
 }
 
-
+td,img{
+	height: 40px;
+}
 
 

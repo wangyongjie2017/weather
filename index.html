@@ -11,7 +11,7 @@
 <body>
 	<div id="app">
 		<div class="header" v-bind:style="up">
-			<input type="text" v-bind:style="seek" placeholder="BeiJing" v-model="location">
+			<input type="text" v-bind:style="seek" placeholder="BeiJing" v-model="location" @keyDown.enter="changeLocation">
 			<button type="" v-bind:style="btn">搜索</button>
 		</div>
 		<div class="body_left">
@@ -50,7 +50,7 @@
 				</tr>
 				<tr>
 					<td>雨量</td>
-					<td v-for="rain in weatherArr">{{rain.rain}}</td>
+					<td v-for="rain in weatherArr">{{rain.rain== null?"天气不错哦∩_∩":rain.rain}}</td>
 				</tr>
 			</table>
 
@@ -61,6 +61,7 @@
 <!--封装的数据请求插件-->
 	<script src='https://unpkg.com/axios/dist/axios.min.js'></script>
 	<script src="./js/vue.js"></script>
+	<script src="https://unpkg.com/vue"></script>
 	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 	<script type="text/javascript" src='js/index.js'></script>
 </html>

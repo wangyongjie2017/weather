@@ -6,6 +6,10 @@ new Vue({
 		location:'BeiJing',
 		weatherArr:[],
 		time:'时间错误',
+		name:'城市获取错误',
+		country:'国家获取错误',
+		longitude:'经度获取错误',
+		Latitude:'纬度获取错误',
 		// one:'',
 		// two:'',
 		// three:'',
@@ -52,7 +56,8 @@ new Vue({
 			//这个位置赋值解决下面this指向全局的问题
 			var that = this;
 			// axios.get('http://api.openweathermap.org/data/2.5/forecast/daily?q=Beijing&appid=7c5219469d1d3aa869d2599559d26fc1&lang=zh_cn')    //老师提供的api
-			axios.get('http://api.openweathermap.org/data/2.5/forecast/daily?q=Beijing&appid=2eb794db191d0befe1f0ac7d4a0108ed&lang=zh_cn&cnt=7')      //修改密钥
+			axios.get(`http://api.openweathermap.org/data/2.5/forecast/daily?q=${that.location}&appid=2eb794db191d0befe1f0ac7d4a0108ed&lang=zh_cn&cnt=7`)      //修改密钥
+			// axios.get('"http://api.openweathermap.org/data/2.5/forecast/daily?q=" + that.location + "appid=2eb794db191d0befe1f0ac7d4a0108ed&lang=zh_cn&cnt=7"')  
 			// axios.get('http://api.openweathermap.org/data/2.5/weather?q=Beijing&appid=2eb794db191d0befe1f0ac7d4a0108ed&lang=zh_cn')
 				.then(function(response){
 					console.log(response);
@@ -67,6 +72,9 @@ new Vue({
 					console.log(error)
 				});
 		},
+		changeLocation : function (){
+				this.getDate()
+		},
 		times:function(){
 			var time = new Date()
 			this.year = time.getFullYear();
@@ -75,8 +83,6 @@ new Vue({
 			console.log(time)
 			this.one = time.getMonth()+1;
 			this.one = time.getDate()
-			
-			
 		}
 	},
 	created(){
@@ -84,7 +90,7 @@ new Vue({
 		this.getDate()
 		this.times()
 	}
-
+	
 })
 
 
